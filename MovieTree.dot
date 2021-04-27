@@ -1,5 +1,71 @@
 digraph MovieTree {
-    node [fontname="Arial" ];
-    15
-    15 -> 18
+  20 [label="The Sixties"]
+	21 [label="The Story of the Tender Trio"]
+	22 [label="Lil Dice and the tender trio rob the love motel"]
+	23 [label="The tender trio escape the love motel without Lil Dice"]
+	24 [label="Man kills his wife for adultry and Goose gets raided by the cops"]
+	25 [label="Shaggy dies trying to hijack a car"]
+	26 [label="The Seventies"]
+	27 [label="The story of the apartment"]
+	28 [label="Rocket tries to buy weed for Martha"]
+	30 [label="The story of Lil Z"]
+	31 [label="Lil Dice kills Rocket's brother"]
+	32 [label="Lil Z gains amulet and becomes big crime boss"]
+	33 [label="Lil Z shoots the apartment dealer"]
+	34 [label="Lil Z starts selling drugs"]
+	35 [label="Benny meets Tiago and becomes a playboy"]
+	36 [label="Lil Z and Carrot and Lil Z vs the Runts"]
+	37 [label="A sucker's life"]
+	38 [label="Flirting with crime"]
+	39 [label="Rocket fails at robbing the waitress and the man from Sao Paolo"]
+	40 [label="\"You need a girlfriend Lil Z\""]
+	41 [label="Benny's farewell"]
+	42 [label="Knockout Ned and Lil Z's inciting incident"]
+	43 [label="The story of Knockout Ned"]
+	44 [label="War breaks out: Lil Z vs Carrot and Ned"]
+	45 [label="Rocket takes photos of Lil Z's gang"]
+	46 [label="Rocket starts living with professional prohotographer"]
+	47 [label="Lil Z gives the Runts guns"]
+	48 [label="The Beginning of the End"]
+	50 [label="Rocket gets caught between Lil Z and police"]
+	51 [label="The final war begins and Rocket takes photos"]
+	52 [label="The Story of Otto"]
+	54 [label="Knockout Ned is killed by Otto"]
+	55 [label="Lil Z is arrested, Rocket takes photos"]
+	56 [label="Lil Z is killed by the Runts, Rocket takes photos"]
+	57 [label="Rocket gets an internship for his photogrpahy"]
+	28 -> 23
+	28 -> 39
+	23 -> 21
+	23 -> 25
+	21 -> 20
+	21 -> 22
+	25 -> 24
+	25 -> 26
+	26 -> 27
+	39 -> 35
+	39 -> 43
+	35 -> 33
+	35 -> 37
+	33 -> 31
+	33 -> 34
+	31 -> 30
+	31 -> 32
+	37 -> 36
+	37 -> 38
+	43 -> 41
+	43 -> 47
+	41 -> 40
+	41 -> 42
+	47 -> 45
+	47 -> 52
+	45 -> 44
+	45 -> 46
+	52 -> 50
+	52 -> 55
+	50 -> 48
+	50 -> 51
+	55 -> 54
+	55 -> 56
+	56 -> 57
 }
