@@ -24,6 +24,7 @@ scene_tag: a brief description that describes the scene
 import subprocess
 from graphviz import Digraph
 from rb_tree import RedBlackTree, Node, BLACK, RED, NIL
+import math
 NIL_LEAF = Node(value=None, color=NIL, parent=None)
 
 class MovieTree:
@@ -39,6 +40,11 @@ class MovieTree:
         self.print_function = self.print_types[print_type]
         self.scenes = 1
 
+    def __iter__(self):
+        if not self.root_scene:
+            return list()
+        yield from self.root_scene.__iter__()
+        
     def next(self, scene_type, scene_tag=None, scene_id=None):
         if scene_type == 'flashback':
             assert scene_tag is not None
@@ -114,6 +120,15 @@ class Scene:
     def __str__(self):
         return f'description: {self.scene_tag}'
 
+    def __iter__(self):
+        if self.left_scene != None:
+            yield from self.left_scene.__iter__()
+
+        yield self
+
+        if self.right_scene != None:
+            yield from self.right_scene.__iter__()
+
 def add_nodes(dg, node):
     if node != rb_tree.NIL_LEAF:
         add_nodes(dg, node.left)
@@ -128,6 +143,9 @@ def add_edges(dg, node):
             dg.edge(node.value, node.right.value)
         add_edges(dg, node.left)
         add_edges(dg, node.right)
+
+def flashbackiness(ratio):
+    return abs(-math.log10(ratio) - 0.3)
 
 def DotTree(t):
     tree = Digraph()
@@ -195,8 +213,10 @@ if __name__ == '__main__':
     for item in s:
         rb_tree.add(item)
     rb_dot = DotTree(rb_tree)
+    
+    print(rb_dot.source)
 
-    #print(rb_dot.source)
-    subprocess.call(["/usr/local/bin/dot","-Tpng","MovieTree.dot","-o","rbgraph.png"])
+    # Uncomment this when you want to generate a new graph visualization of the tree
+    #subprocess.call(["/usr/local/bin/dot","-Tpng","MovieTree.dot","-o","rbgraph.png"])
     
 
